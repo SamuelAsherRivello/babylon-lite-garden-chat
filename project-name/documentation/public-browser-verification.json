@@ -1,0 +1,22 @@
+{
+  "url": "https://samuelasherrivello.github.io/babylon-lite-garden-chat/",
+  "passed": true,
+  "checks": [
+    "WebGPU desktop",
+    "two clients",
+    "WASD and arrows",
+    "collision",
+    "pause",
+    "typing isolation",
+    "chat relay",
+    "safe HTML",
+    "late history",
+    "mobile layout",
+    "emulated touch",
+    "history scroll",
+    "hot drop and fresh rejoin",
+    "blur release",
+    "unsupported GPU"
+  ],
+  "errors": []
+}

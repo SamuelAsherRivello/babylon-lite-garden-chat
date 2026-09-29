@@ -40,6 +40,8 @@ Uses [RMC Colyseus Multiplayer Server v0.3.0](https://github.com/SamuelAsherRive
 
 Experimental portfolio hosting: Vercel functions can expire around five minutes. Reconnection uses a fresh identity. Room closure, deployment or instance restart clears in-memory history; separate instances do not share state. There are no accounts, durable chat, private rooms or moderation tools. Chat is public to visitors. Full rooms display an explicit retry option.
 
+The public v0.0.3 browser checks also passed against shared backend v0.5.0 after concurrent backend releases; the game keeps its verified v0.3.0 client pin.
+
 ## Project Details
 
 `project-name/` remains the Vite application root according to template AGENTS.md; npm configuration stays at the repository root. `src/renderer.js` uses **Babylon Lite 1.32.0**, not full Babylon.js. `src/input.js` holds testable movement mapping; `src/main.js` owns lifecycle and safe text-only DOM chat rendering.

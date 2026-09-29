@@ -13,3 +13,15 @@
 - OpenSpec: four changes validated strictly. First three implementation systems verified; public delivery is completed after release/public checks.
 
 Public release verification will be recorded below after deployment.
+
+## Public release verified
+
+- Game release: v0.0.3, tag commit 48f1ef6, release workflow 36611172946 passed; Pages workflow 36611202705 passed.
+- Public URL: https://samuelasherrivello.github.io/babylon-lite-garden-chat/
+- Public version.txt returned version=0.0.3 and browser screenshot shows v0.0.3.
+- Full browser suite repeated successfully against that public URL: two independent sessions, rendering/assets, keyboard, collision, pause, focus safety, chat relay/plain-text rendering, late history, mobile touch emulation/layout, scroll preservation, leave/rejoin, blur release and unsupported GPU message. No supported-page runtime errors.
+- Shared service was independently extended by concurrent work to v0.5.0 during delivery. Public verification passed against live v0.5.0 while Garden Chat remains pinned to the compatible released v0.3.0 client. The Garden extension's own v0.3.0 release/deployment remains independently verified.
+- All 41 imported shared-library files and 37 Blender-package files match their source bytes.
+- Clean npm ci succeeded after stopping the local Vite processes that held Windows native module locks.
+- Canonical README screenshot refreshed from the actual public v0.0.3 game. Browser evidence: public-browser-verification.json.
+- Physical mobile hardware and long-lived production scaling remain unverified; experimental hosting and session-only history are documented.
