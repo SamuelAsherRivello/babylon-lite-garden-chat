@@ -1,75 +1,86 @@
-<!-- AI: Keep commands rooted at the repository. The Vite application, source, tests, and build output belong in project-name/. -->
 ![Samuel Asher Rivello](project-name/documentation/samuel-asher-rivello-banner.png)
 
-# {project-name}
+# Garden Chat
 
-<!-- AI: Update this project summary when the template is used. -->
-This is the project repo....
-
-## Images
-
-### Screenshots
-
-<a href="project-name/documentation/screenshot01.png"><img src="project-name/documentation/screenshot01.png" width="400" alt="Screenshot placeholder" /></a>
+A cozy **multiplayer** garden for up to 12 visitors. Wander with WASD, arrows or touch, bump into each other, and share one scrolling conversation. No chores, scores, interior obstacles or win condition.
 
 ## Live Demo
 
-- [{live-demo-url}](https://samuelasherrivello.github.io/github-repository-template/)
+[Visit Garden Chat](https://samuelasherrivello.github.io/babylon-lite-garden-chat/)
 
-## Table of Contents
-
-1. [Images](#images)
-2. [Live Demo](#live-demo)
-3. [Getting Started](#getting-started)
-4. [Project Details](#project-details)
-5. [Credits](#credits)
+![Garden Chat](project-name/documentation/screenshot.png)
 
 ## Getting Started
 
-<!-- AI: Update this getting-started summary when the template is used. -->
-This is the getting started...
+Use Node 24 and npm. Run from the repository root:
 
-### 🛠 Build Project
+```sh
+npm ci
+npm run dev
+npm test
+npm run build
+npm run preview
+```
 
-1. From the repository root, run `npm install`.
-2. Run `npm run build`.
+Open the URL printed by Vite. Requires a recent Chrome or Edge with WebGPU and hardware acceleration. Initialization failures show recovery instructions. Optional `.env.local` can set `VITE_SERVER_URL`; see `.env.example`. No credentials belong in the client.
 
-### 🛠 Run Project
+## Controls and Chat
 
-1. From the repository root, run `npm run dev` and open the localhost URL Vite prints.
-2. Run `npm test` to execute the focused source checks.
+- WASD / arrow keys: move. Touch devices have a directional pad with simultaneous directions.
+- Type a message and press Enter or Send. Escape returns focus to the garden.
+- Pause stops your movement while everyone else continues. Resume restores controls.
+- Leave garden disconnects; Join garden creates a fresh anonymous visitor.
+- Invite a friend copies the garden URL.
 
-### 🛠 Release Version
+The server validates movement, bounds and collisions. Input stops on blur, page hiding, pause, text focus or pointer cancellation. Names and colors are automatic. Chat accepts 280 characters per message, with a 750ms rate limit. Scroll upward to read earlier messages; new messages preserve your reading position and expose a jump-to-latest button. Late joiners see the latest 100 messages, including departed authors.
 
-1. Run `npm test` and `npm run build` from the repository root.
-2. Push to `main` to deploy through the GitHub Pages workflow.
-3. Run the **Release** workflow from GitHub Actions to bump the patch version, tag it, and create the GitHub release.
+## Multiplayer and Hosting
+
+Uses [RMC Colyseus Multiplayer Server v0.3.0](https://github.com/SamuelAsherRivello/rmc-colyseus-multiplayer-server/releases/tag/v0.3.0), isolated room key `garden-chat`, and the exact `rmc-multiplayer-client-0.3.0.tgz` release asset. Public endpoint: `https://rmc-colyseus-multiplayer-server.vercel.app`. Existing Drawing and Sumo protocols are preserved.
+
+Experimental portfolio hosting: Vercel functions can expire around five minutes. Reconnection uses a fresh identity. Room closure, deployment or instance restart clears in-memory history; separate instances do not share state. There are no accounts, durable chat, private rooms or moderation tools. Chat is public to visitors. Full rooms display an explicit retry option.
 
 ## Project Details
 
-<!-- AI: Update these project details when the template is used. -->
-This is the project details...
+`project-name/` remains the Vite application root according to template AGENTS.md; npm configuration stays at the repository root. `src/renderer.js` uses **Babylon Lite 1.32.0**, not full Babylon.js. `src/input.js` holds testable movement mapping; `src/main.js` owns lifecycle and safe text-only DOM chat rendering.
 
-### 📝 Structure
+Original farm art was built in Blender through the official MCP using imported Blender skills. [Editable Blender source](project-name/art/garden.blend), [deployed GLB](project-name/public/assets/garden.glb). Trees, crops and barn sit outside the fence. Runtime gardeners wear distinct colors and straw hats. The supplied farm screenshot is visual inspiration, not copied artwork. A generated visual target guided palette review; the README screenshot is the real game.
 
-- `project-name/index.html` provides the plain safe-area HTML shell.
-- `project-name/test/` contains focused automated checks for the starter.
-- `project-name/documentation/` contains canonical README images and project
-  documentation assets.
+Both [AI Skills Library](https://github.com/SamuelAsherRivello/ai-skills-library) and [AI Skills Blender](https://github.com/SamuelAsherRivello/ai-skills-blender) are imported as real project-local files. See [provenance](project-name/documentation/provenance.md) and [explore findings](project-name/documentation/exploration.md). Four OpenSpec changes cover multiplayer, garden/input, chat and delivery, each explored and applied. Conflicting template skill baselines are preserved outside discovery.
 
-### 📦 AI
+## Verification and Release
 
-- `AGENTS.md` contains repository-specific AI agent guidance.
-- `AGENTS_TEMPLATE_USAGE_CHECKLIST.md` contains the template reuse checklist.
-- [openspec](openspec/) contains the repository's specification workflow
-  configuration.
+`npm test` checks normalized movement, opposing directions and blocked input. `npm run test:browser` uses Playwright Chromium with WebGPU for independent sessions, keyboard movement, collisions, pause, chat focus, relay, literal HTML, late history, drop/rejoin, scroll preservation and emulated mobile touch. Install its browser with `npx playwright install chromium` if needed. Set `TEST_URL` to test a deployed build; run against a quiet room. Shared-server tests cover 12/13 capacity, invalid payloads, collision/bounds, departure, reconnect and isolation.
 
-### 📦 Packages
+The checked-in **Release** workflow installs, tests and builds, increments the patch in `version.txt`, commits/tags, publishes a release and dispatches **Deploy live demo**. GitHub Pages uses `/babylon-lite-garden-chat/`. The displayed version imports `version.txt`, the single version source. See [verification evidence](project-name/documentation/verification.md).
 
-- [Vite](https://vite.dev/) provides local development and production builds.
+## Original AI Prompt
 
+<details>
+<summary>Read the original request and follow-up</summary>
+
+```text
+$rmc-game-creator Create a new MULTIPLAYER game in a public repo.
+
+Using this template: https://github.com/SamuelAsherRivello/github-repository-template
+
+Its a farm/garne environment with bounds. but no obstacles. each player can moev with WASD/Keys and bump into each other. then there is one group chat where each person can text to the chain and scroll through the chat history. has hot join and hot drop.
+
+Its called babylon-lite-garden-chat.
+
+Import these codex skills to use to make art https://github.com/SamuelAsherRivello/ai-skills-blender/
+
+This is more of an interactive experience, and less of a 'game' with specific rules.
+
+[Attached: farm reference image.]
+
+Follow-up:
+import these skills and use the explore and apply for each major system in the game. https://github.com/SamuelAsherRivello/ai-skills-library/. Optional is to use other skills too.
+```
+</details>
 
 ## Credits
+
 
 <!-- AI: Preserve established attribution and ownership. Customize the following subsections only from confirmed contributor, contact, and license information; do not infer a new owner from the repository name. -->
 ### 💡 Contributors

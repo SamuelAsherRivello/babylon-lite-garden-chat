@@ -1,0 +1,2 @@
+export function movement(keys,blocked=false){if(blocked)return {x:0,z:0};let x=Number(keys.has('d')||keys.has('ArrowRight'))-Number(keys.has('a')||keys.has('ArrowLeft'));let z=Number(keys.has('s')||keys.has('ArrowDown'))-Number(keys.has('w')||keys.has('ArrowUp'));const length=Math.max(1,Math.hypot(x,z));return{x:x/length,z:z/length};}
+export const isMovementKey=key=>['w','a','s','d','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(key);

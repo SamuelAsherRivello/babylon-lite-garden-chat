@@ -1,20 +1,13 @@
 schema: spec-driven
 context: |
-  Repository: project-name.
-  This repository starts as a reusable template with no application
-  implementation, product decisions, or approved technology stack.
-  Canonical project documentation assets live in project-name/documentation/.
-  Before proposing or applying a change, record the project's verified purpose,
-  runtime targets, architecture, dependency policy, security constraints, and
-  validation commands here.
-rules:
-  proposal:
-    - Mark unresolved decisions clearly; recommendations are not approvals.
-    - State the affected user behavior and acceptance criteria.
-  design:
-    - Describe only architecture and technologies verified for this project.
-    - Preserve explicit boundaries between application layers or packages.
-  tasks:
-    - Keep planning, implementation, and verification tasks explicit.
-    - Include focused checks appropriate to the implemented change.
-
+  Garden Chat is a multiplayer social garden, not a scored game. Public repository
+  SamuelAsherRivello/babylon-lite-garden-chat generated from the required template.
+  Keep project-name/ as application root per AGENTS.md; npm root remains repository.
+  Use Babylon Lite 1.32.0 with WebGPU, Vite, and exact released @rmc/multiplayer-client 0.3.0.
+  Shared server garden-chat room is released and live verified, 12 anonymous visitors,
+  server authority for bounds/collisions and 100 in-memory chat messages.
+  No accounts, durable chat, interior obstacles, scoring or global reset.
+  Original Blender GLB art, desktop WASD/arrows and touch controls, portrait world,
+  responsive shared chat. Stop input on focus loss, pause or text entry.
+  Verify npm test, npm run build and two-browser interaction; deploy GitHub Pages.
+  User explicitly requests explore then apply for each major system and full delivery.

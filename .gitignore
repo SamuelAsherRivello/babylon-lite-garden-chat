@@ -9,3 +9,7 @@ node_modules/
 .env.*
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+# Local test output and editor assets
+/test-results/
+*.blend1
+!.env.example

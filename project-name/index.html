@@ -1,16 +1,7 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GitHub Repository Template</title>
-  </head>
-  <body>
-    <!-- Game engine content belongs in content_layer when a game engine exists. -->
-    <div id="content_layer"></div>
-
-    <!-- Any UI, HTML, React, or user-interface content belongs in ui_layer. -->
-    <div id="ui_layer"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#254c3c"><meta name="description" content="A little garden. A little company. Wander and chat together in a live multiplayer garden."><title>Garden Chat</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ctext y='48' font-size='48'%3E🌱%3C/text%3E%3C/svg%3E"></head>
+<body><div id="ui_layer"><header><a class="brand" href="./"><span class="brand-mark">❧</span><span>Garden Chat<small>A LITTLE GARDEN. A LITTLE COMPANY.</small></span></a><nav><button id="invite">Invite a friend ↗</button><a href="https://github.com/SamuelAsherRivello/babylon-lite-garden-chat" target="_blank" rel="noreferrer">GitHub ↗</a></nav></header>
+<main><aside class="welcome"><span class="eyebrow">THE GARDEN IS OPEN</span><h1>Take a breath.<br>Stay a while.</h1><p>No chores. No high scores.<br>Just a patch of green<br>and good company.</p><div class="botanical" aria-hidden="true"><span>✳</span><span>❧</span><span>✳</span></div><div class="field-notes"><span class="eyebrow">A FEW FIELD NOTES</span><p><b>01</b> Wander with WASD or arrows.</p><p><b>02</b> Bump into someone new.</p><p><b>03</b> Say hello in the garden chat.</p></div><span class="margin-note">Something good grows here.</span></aside>
+<section id="content_layer" aria-label="Multiplayer garden"><div class="garden-top"><span><i class="live-dot"></i><b id="connection">Preparing</b></span><span id="occupancy">0 / 12</span></div><canvas id="garden" tabindex="0" aria-label="Garden. Move with WASD or arrow keys."></canvas><div id="labels" aria-hidden="true"></div><div id="overlay"><span class="eyebrow">WELCOME TO THE GARDEN</span><h2 id="overlay-title">Planting the scene…</h2><p id="overlay-message">Getting your little corner of green ready.</p><button id="retry" hidden>Try again</button></div><div class="garden-bottom"><span id="identity">Finding your sunhat…</span><span id="movement-hint">WASD / ↑ ↓ ← →</span></div><div class="touch-pad" aria-label="Movement controls"><button data-key="ArrowUp" aria-label="Move up">↑</button><button data-key="ArrowLeft" aria-label="Move left">←</button><button data-key="ArrowDown" aria-label="Move down">↓</button><button data-key="ArrowRight" aria-label="Move right">→</button></div></section>
+<section class="chat-panel" aria-labelledby="chat-title"><div class="chat-heading"><span class="eyebrow">ONE GARDEN. ONE CONVERSATION.</span><h2 id="chat-title">Around the garden <span>✳</span></h2><div id="people" aria-label="Visitors"></div></div><div id="messages" role="log" aria-label="Garden chat history" aria-live="polite" tabindex="0"><div class="chat-welcome"><span>❧</span><h3>Make yourself at home.</h3><p>Say hello, share a thought,<br>or just enjoy the company.</p><small>The latest 100 messages stay<br>until this garden session ends.</small></div></div><button id="latest" hidden>New messages ↓</button><form id="chat-form"><label class="sr-only" for="message">Message the garden</label><div class="composer"><input id="message" maxlength="280" placeholder="Say something kind…" autocomplete="off" disabled><button id="send" type="submit" aria-label="Send message" disabled>↑</button></div><div class="composer-meta"><span>Enter to send · Esc to wander</span><span id="count">0 / 280</span></div></form><p id="notice" role="status">Chat is shared with everyone here.</p></section></main>
+<footer><div class="settings"><button id="pause" aria-pressed="false">Ⅱ Pause</button><button id="leave">Leave garden</button></div><span class="footer-note">Come as you are. Leave a little happier.</span><span id="version"></span></footer></div><script type="module" src="/src/main.js"></script></body></html>

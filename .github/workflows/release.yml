@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: release
@@ -23,8 +24,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Test template
+      - run: npm ci
+      - name: Test Garden Chat
         run: npm test
+      - run: npm run build
       - name: Bump patch version
         id: version
         shell: bash
@@ -49,3 +52,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ steps.version.outputs.value }}
         run: gh release create "v$VERSION" --generate-notes --title "v$VERSION"
+
+      - name: Deploy released version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-pages.yml --ref main
