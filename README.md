@@ -6,9 +6,17 @@ A cozy **multiplayer** garden for up to 12 visitors. Wander with WASD, arrows or
 
 ## Live Demo
 
-[Visit Garden Chat](https://samuelasherrivello.github.io/babylon-lite-garden-chat/)
+ - [Visit Garden Chat](https://samuelasherrivello.github.io/babylon-lite-garden-chat/)
+
+## Images
 
 ![Garden Chat](project-name/documentation/screenshot.png)
+
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Project Details](#project-details)
+3. [Credits](#credits)
 
 ## Getting Started
 
